@@ -8,10 +8,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
+import axios from 'axios';
+import { serverName } from '@/settings';
 
-@Component({
-    components: {},
-})
-export default class Home extends Vue {}
+export default Vue.extend({
+    created() {
+        console.log(serverName);
+        axios
+            .get(serverName + '/greeting')
+            .then((response) => {
+                console.log(response);
+            })
+            .catch();
+    },
+});
 </script>
