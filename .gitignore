@@ -1,0 +1,8 @@
+
+backend/\.mvn/
+
+backend/mvnw
+
+backend/mvnw\.cmd
+
+postgres\.txt
