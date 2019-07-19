@@ -10,13 +10,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import axios from 'axios';
-import { serverName } from '@/settings';
+import { serverName } from '@/serverName';
 
 export default Vue.extend({
     created() {
         console.log(serverName);
         axios
-            .get(serverName + '/greeting')
+            .get(serverName + '/todo')
             .then((response) => {
                 console.log(response);
             })
