@@ -1,9 +1,10 @@
 <template>
-    <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <div class="">
-            asldaskdn
-        </div>
+    <div id="home" class="page">
+        <b-container>
+            <form class="">
+                <input @keyup.enter="addTodo" type="text" name="" value="" />
+            </form>
+        </b-container>
     </div>
 </template>
 
@@ -13,14 +14,26 @@ import axios from 'axios';
 import { serverName } from '@/serverName';
 
 export default Vue.extend({
+    data() {
+        return {
+            todos: [],
+        };
+    },
     created() {
-        console.log(serverName);
         axios
             .get(serverName + '/todo')
             .then((response) => {
-                console.log(response);
+                this.todos = response.data;
             })
             .catch();
+    },
+    methods: {
+        addTodo() {
+            axios.post(serverName + 'todo', {
+                task: 'asdasd',
+                done: false,
+            });
+        },
     },
 });
 </script>
